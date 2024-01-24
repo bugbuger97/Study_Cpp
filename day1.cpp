@@ -1,17 +1,14 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main(){
-    // 원의 면적과 둘레 구하기
-    const double PI = 3.141592;
-    double radius;
+    // 문자열 자료형
+    string first_name = "Robert";
+    string second_name = ".D.";
+    string third_name = "Junier";
 
-    cout << "Input Radius : ";
-    cin >> radius;
-    
-    // 결과 출력
-    cout << "Radius : " << radius << endl;
-    cout << "Circumference : " << 2 * PI * radius << endl;
-    cout << "Area : " << radius * radius * PI << endl; 
+    cout << first_name + second_name + third_name << endl;
+
     return 0;
 }
