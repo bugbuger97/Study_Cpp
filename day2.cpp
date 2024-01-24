@@ -1,9 +1,11 @@
 #include <iostream>
+#include <typeinfo>
 using namespace std;
 
 int main(){
-    // sizeof expression : 표현식의 크기나 자료형의 크기를 확인할 때, 사용하는 연산자임.
-    cout << sizeof(int) << endl; // 4bytes -> 자료형의 크기 구하기
-    cout << sizeof 'a' << endl; // 1byte -> 표현식 구하기 
+    int a = 2;
+    float b = 3.14;
+    cout << a * b << endl; // 표현 범위가 넓은 쪽으로 형변환이 됨.
+    cout << typeid(a * b).name() << endl; // float
     return 0;
 }
