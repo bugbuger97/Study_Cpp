@@ -2,16 +2,35 @@
 using namespace std;
 
 int main(){
-    // 조건문에 괄호를 생략한 경우
-    int x = 0;
-    bool statement1 = true;
-    bool statement2 = false;
-    if (x == 0)
-        cout << statement1 << endl; // statement1 is exexuted if x is 0
-        cout << statement2 << endl; // statement2 is always executed
+    // 여러 방향의 조건 분기의 형태
+    // Non-compact
     /*
-    if (x == 0) cout << statement1 << endl; 
-    cout << statement2 << endl; // 위의 코드는 이런 식으로 실행됨.
+    if (condition 1)
+        statement1;
+    else
+        if (condition 2)
+            statement2;
+        else
+            if (condition 3)
+                statement3;
+            else 
+                if (condition 4)
+                    statement4;
+                else
+                    statement5;
+    */
+    // Compact
+    /*
+    if (condition 1)
+        statement1;
+    else if (condition 2)
+        statement2;
+    else if (condition 3)
+        statement3;
+    else if (condition 4)
+        statement4;
+    else
+        statement5;
     */
     return 0;
 }
