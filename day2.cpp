@@ -2,35 +2,14 @@
 using namespace std;
 
 int main(){
-    // 여러 방향의 조건 분기의 형태
-    // Non-compact
-    /*
-    if (condition 1)
-        statement1;
-    else
-        if (condition 2)
-            statement2;
-        else
-            if (condition 3)
-                statement3;
-            else 
-                if (condition 4)
-                    statement4;
-                else
-                    statement5;
-    */
-    // Compact
-    /*
-    if (condition 1)
-        statement1;
-    else if (condition 2)
-        statement2;
-    else if (condition 3)
-        statement3;
-    else if (condition 4)
-        statement4;
-    else
-        statement5;
-    */
+    // Logic expression
+    int age;
+    bool eligible;
+    cout << "Enter your age : ";
+    cin >> age;
+    eligible = (age >= 25 && age <= 80);
+    if(eligible) cout << "you are eligible to rent to a car";
+    else cout << "you are not eligible to rent to a car";
+    
     return 0;
 }
