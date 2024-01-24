@@ -1,11 +1,15 @@
 #include <iostream>
-#include <typeinfo>
 using namespace std;
 
 int main(){
-    int a = 2;
-    float b = 3.14;
-    cout << a * b << endl; // 표현 범위가 넓은 쪽으로 형변환이 됨.
-    cout << typeid(a * b).name() << endl; // float
+    // 메모리 변경 == 할당
+    // 부가 작용 == 할당을 해서 메모리에 저장되어 있는 값 변경
+    
+    // explicit type coversion
+    // static_cast<type>(expression)
+    double x = 3.141592;
+    int y = 10;
+    cout << "Not casting : " << x + y << endl; // Not casting : 13.1416
+    cout << "castiong : " << static_cast<int>(x) + y << endl; // castiong : 13
     return 0;
 }
