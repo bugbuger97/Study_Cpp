@@ -4,19 +4,20 @@ using namespace std;
 
 int main()
 {
-    // implicit type conversion
-    bool x = false;
-    char y = 'a';
-    short z = 45;
-    float k = 3.14;
+    // C++에서의 부가 작용 : 주로 표현식이나 코드의 문장이 프로그램의 상태에 영향을 미치는 경우를 가리킴.
+    // 부가 작용은 코드에서 예측할 수 없는 동작을 초래하거나 프로그램의 상태를 변경할 수 있는 것을 의미함.
+    // 이로 인해 코드의 이해와 유지 보수가 어려워질 수 있고, 버그를 발생시킬 수 있음.
 
-    cout << "type of x + 100 : " << typeid(x + 100).name() << endl; // i -> int
-    cout << "value of x + 100 : " << x + 100 << endl;  // 100
-    cout << "type of y + 100 : " <<  typeid(y + 100).name() << endl; // i -> int
-    cout << "value of y + 100 : " << y + 100 << endl; // 197
-    cout << "type of z * 100 : " << typeid(z*100).name() << endl; // i -> int
-    cout << "value of z * 100 : " << z*100 << endl; // 4500
-    cout << "type of k + 100.01 : " << typeid(k + 100.01).name() << endl; // d -> double
-    cout << "value of k + 100.01 : " << k + 100.01 << endl; // 103.15
+    // 1. 부가 작용이 있는 코드의 예시
+    // a = b++ + c;
+    // 이 코드에서 b++ 은 후위 증가 연산자로, 현재 b 값을 사용하고 나서 b를 1 증가 시킴.
+    // 이로 인해 a에 할당되는 값은 b의 현재 값과 c의 합이 됨.
+    // 이러한 연산은 코드를 이해하기 어렵게 만들 수 있음.
+
+    // 2. 부가작용이 없는 코드의 예시
+    // a = b + c;
+    // 이 코드는 간단한 덧셈 연산이 이루어지고 그 결과가 a에 할당됨.
+    // 다른 변수들의 상태를 변경하지 않음.
+    // 더 명확하고 예측가능하며, 디버깅과 유지보수가 용이함.
     return 0;
 }
