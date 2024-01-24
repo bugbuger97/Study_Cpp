@@ -2,36 +2,13 @@
 using namespace std;
 
 int main(){
-    // swich statement
-    int day;
-    cout << "Enter a number : ";
-    cin >> day;
-
-    switch(day){
-        case 0: 
-            cout << "Sunday" << endl;
-            break;
-        case 1: 
-            cout << "Monday" << endl;
-            break;
-        case 2: 
-            cout << "Tuesday" << endl;
-            break;
-        case 3: 
-            cout << "Wendnesday" << endl;
-            break;
-        case 4: 
-            cout << "Thursday" << endl;
-            break;
-        case 5: 
-            cout << "Friday" << endl;
-            break;
-        case 6: 
-            cout << "Saturday" << endl;
-            break;
-        default: 
-            cout << "vacation" << endl;
-            break;
-    }
+    // 삼항 연산자
+    // 조건 ? 표현식1 : 표현식2
+    // 조건이 true이면, 표현식1
+    // 조건이 false이면, 표현식2
+    int x = 6;
+    bool result = x>5 ? true : false;
+    cout << result << endl;
+    result ? cout << "x > 5" << endl : cout << "x <= 5" << endl;
     return 0;
 }
