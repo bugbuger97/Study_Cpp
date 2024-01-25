@@ -1,39 +1,17 @@
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
+// 함수 : 모듈화를 시킬 수 있는 기본적인 단위
+// 함수의 장점 : 분할 처리, 디버그, 재사용, 함수 라이브러리
+// 함수의 이름이 중복이고, 매개변수도 똑같이 되면 안된다. 
+int add(int a, int b) // 헤더
+{ // 2개의 매개변수를 설정
+    return a+b; // 매개변수
+}
+
 int main(){
-    // declaration
-    int start_day;
-    int days_in_month;
-    int col = 1;
-    // validation of days in a month
-    do{
-        cout << "Enter the number of day (28,29,30,31) : ";
-        cin >> days_in_month;
-    }while(days_in_month < 28 || days_in_month > 31);
-    // 요일 유효성 검사
-    do{
-        cout << "Input first day of week(0 ~ 6) : ";
-        cin >> start_day;
-    }while(start_day < 0 || start_day > 6);
-    // 제목 출력
-    cout << endl;
-    cout << "Son Mon Tue Wed Thr Fri Sat" << endl;
-    cout << "--- --- --- --- --- --- ---" << endl;
-    // 달력의 앞쪽 여백 출력
-    for (int space = 0; space < start_day; space++){
-        cout << "    ";
-        col++;
-    }
-    // 달력 출력
-    for (int day = 1; day <= days_in_month; day++){
-        cout << setw(3) << day << " ";
-        col++;
-        if (col > 7){
-            cout << endl;
-            col = 1;
-        }
-    }
+    int x = 5;
+    int y = 25;
+    cout << add(x,y); // x, y라는 인수를 add()함수로 전달.
     return 0;
 }
