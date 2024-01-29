@@ -1,41 +1,40 @@
-// 정적 데이터 멤버 선언
-// 전역 변수 같은 것인가?
+// 값으로 전달(pass-by-value)
+// pass-by-value 매커니즘은 인수의 값이 복사되어서 매개변수에 할당됨.
 /*
-정적 데이터 멤버(static data member)는 클래스의 인스턴스가 아닌 클래스 자체에 속하는 멤버 변수임. 
-따라서 이러한 변수는 클래스의 모든 인스턴스에서 동일한 값을 공유하게 됨.
-정적 데이터 멤버는 전역 변수처럼 사용될 수 있음. 
-하나의 클래스에서 생성된 모든 객체가 해당 정적 데이터 멤버를 공유하므로 클래스 간에 데이터를 공유하는 용도로 사용할 수 있음. 
-클래스의 인스턴스 없이도 접근이 가능하며, 클래스 이름을 통해 접근할 수 있음.
-*/
+1. 리터럴 값 전달
+int main(){
+    func(10);
+    ...
+}
+void func(int x){ // x라는 매개 변수에 10이 들어감
+    ...
+}
 
-// 매개 변수가 있는 생성자
+2. 변수의 값 전달
+int main(){
+    int x = 10;
+    func(x);
+    ...
+}
+void func(int a){ // a라는 매개 변수에 x가 들어감
+    ...
+}
+*/
 #include <iostream>
-#include <cassert>
 using namespace std;
 
-class Fraction{
-    private:
-        int num;
-        int den;
-    public:
-        // default constructor
-        Fraction(){
-            num = 0;
-            den = 1;
-        }
-        // Constructor with 2 parameter
-        Fraction(int n, int d = 1){
-            assert(d!=0);
-            num = n;
-            den = d;
-        }
-        int get_num() {return num;}
-        int get_den() {return den;}
-        double get_val() {return static_cast<double>(num) / den;}
-};
+// declaration function
+void func(int a){
+    a++;
+    cout << "a in func : " << a << endl;
+    return;
+}
 
 int main(){
-    int x(5);
-    Fraction twotwo(2,2);
+    int x = 5;
+    func(x);
+    cout << "x in main function : " << x << endl;
     return 0;
 }
+// 전달해야 하는 값이 크다면, 복사하는 작업이 무거워질 수 있음.
+// 객체의 크기가 클 때, 값으로 전달 메커니즘을 사용하지 않음.
