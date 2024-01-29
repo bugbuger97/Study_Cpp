@@ -1,72 +1,75 @@
 #include <iostream>
 using namespace std;
 
-// class
-// type : 추상화된 것
-// instance : 타입을 실체화한 구체적인 실체가 있는 것 (객체)
-// attribute : instance가 가지는 특성 (클래스 안의 변수들) -> 변수 == 데이터 멤버
-// behavior : instance가 스스로 할 수 있는 작업 (클래스 안의 메소드들) -> 메소드 == 멤버 함수
+// class header는 클래스라는 키워드 뒤에 클래스의 이름을 붙여서 만듦.
+// 보통 클래스의 이름은 첫 글자는 대문자로 하여 라이브러리 클래스와 구분한다.
 
-// 객체(인스턴스) : 클래스를 기반으로 만든 인스턴스
-// 객체의 속성, 행위는 데이터 멤버, 멤버 함수로 만듦.
+/*
+<헤더>
 
-// 데이터 멤버 : attribute를 표현하기 위한 변수
-// 멤버 함수 : 객체의 행위(기능의 모임)
+class Angle
+{
+    private:
+        // 데이터 멤버 선언
+        double angle;
+    public:
+        // 멤버 함수 선언
+        double get_angle() const;
+        void set_angle(double num);
+};
+*/
 
-// 클래스 정의 (데이터 멤버, 멤버 함수 선언)
+// 접근 제한자(access modifier)
+// 접근 권한을 나타낼 때 사용함.
+// 클래스에서 데이터 멤버와 멤버 함수를 선언하면, 기본적으로 private 접근 제한자가 붙음.
+// private 접근 제한자가 붙으면 해당 요소로부터 값을 추출할 수 없고, 변경할 수도 없음.
+
+// acess modifier in c++
+// public(모든 곳에서의 접근 가능) > protected(서브 클래스에서까지만 접근 가능) > private(같은 클래스에서만 접근 가능)
+
+// 인라인(inline) 함수
+// 프로그램의 성능을 위해서 컴파일러가 함수 호출 부분을 실제 코드로 대체해버리게 만들고 싶을 때는 inline function을 사용함.
+
+// 암묵적 인라인 함수
+// 클래스 정의 내부에 함수를 정의하면, 해당 함수는 인라인 함수가 됨.
+// 암묵적 인라인 함수는 거의 쓰지 않음.
+// 이유 1. 함수 정의 부분을 읽기 어려움.
+// 이유 2. 캡슐화 원칙을 위반.
+/*
 class Circle{
+    // 데이터 멤버
     private:
         double radius;
-        const double PI = 3.141592;
     public:
-        double get_radius() const; // const -> 객체 속성 고정 : 멤버 변수를 바꿀 수 없음.
-        double get_area() const;
-        double get_perimeter() const;
-        void set_radius(double value);
+        double get_radius() const { return radius; }
 };
+*/
 
-// 멤버 함수 정의
-double Circle::get_radius() const{
+// 명시적 인라인 함수
+// 함수 정의 부분에서 맨 앞에 inline이라고 명시적으로 붙여준다.
+/*
+inline double Circle::get_radius() const
+{
     return radius;
 }
-double Circle::get_area() const{
-    return (PI * radius * radius);
-}
-double Circle::get_perimeter() const{
-    return (2 * PI * radius);
-}
-void Circle::set_radius(double value){
-    radius = value;
-}
+*/
 
-// application part
-int main(){
-    cout << "<instance c1>" << endl;
-    Circle c1;
-    c1.set_radius(20.0);
-    cout << "area = " << c1.get_area() << endl;
-    cout << "perimeter = " << c1.get_perimeter() << endl;
-    cout << "radius = " << c1.get_radius() << endl << endl;
+// 구조체 
+// 구조체의 모든 멤버는 기본적으로 public임.
+// 클래스의 모든 멤버는 기본적으로 private임.
+/*
+<구조체>
+struct Name{
+    string first;
+    char middle;
+    string last;
+};
 
-    cout << "<instance c2>" << endl;
-    Circle c2;
-    c2.set_radius(10.0);
-    cout << "area = " << c2.get_area() << endl;
-    cout << "perimeter = " << c2.get_perimeter() << endl;
-    cout << "radius = " << c2.get_radius() << endl << endl;
-
-    cout << "<instance c3>" << endl;
-    Circle c3;
-    c3.set_radius(1.0);
-    cout << "area = " << c3.get_area() << endl;
-    cout << "perimeter = " << c3.get_perimeter() << endl;
-    cout << "radius = " << c3.get_radius() << endl<< endl;
-
-    cout << "<instance c4>" << endl;
-    Circle c4;
-    c4.set_radius(5.0);
-    cout << "area = " << c4.get_area() << endl;
-    cout << "perimeter = " << c4.get_perimeter() << endl;
-    cout << "radius = " << c4.get_radius() << endl;
-    return 0;
-}
+<클래스>
+class Name{
+    public:
+        string first;
+        char middle;
+        string last;
+};
+*/
