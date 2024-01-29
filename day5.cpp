@@ -1,14 +1,19 @@
 #include <iostream>
 using namespace std;
 
-// scope : 소스 코드 내부에서 어떤 entity(상수, 변수, 객체, 함수) 사용할 수 있는 범위를 나타냄.
-// local scope : entity of local scope는 선언된 위치 ~ 블록이 끝나는 부분(줄괄호 끝) 내부에서 사용할 수 있음.
-
-// scope resolution operator
-
-int num = 10; // 전역 변수
-int main(){ 
-    int num = 500; // 지역 변수
-    cout << "global var = " << ::num << endl; // 10
-    cout << "logical var = " << num << endl; // 500
+// static local variable : static 변경자를 앞에 붙여서 만듦. -> 프로그램이 종료되기 전까지 유지됨.
+// static local variable는 딱 1 번만 초기화 되며 프로그램이 실행되는 동안에 프로그램이 메모리 위의 변수를 추적함. 
+// 메인에서 함수를 여러 번 호출하면, 모든 함수들이 같은 변수를 공유함. 
+void func(){
+    static int cnt = 0; // 명시적 정적 변수
+    ++cnt;
+    cout << "cnt = " << cnt << endl;
+    cnt++;
 }
+
+int main(){
+    func();
+    func();
+    func();
+    return 0;
+} 
